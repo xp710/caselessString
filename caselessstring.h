@@ -35,18 +35,19 @@ public:
     void set(std::string p_clsString); //The function for converting a string into a classless string
     char at(int p_at); //Return the lowercase version of the char at p_at
     int size(); //Return the number of CASELESS caracters in clsString.
-    friend std::istream &operator>>(std::istream &input, caselessString &p_cls){ //Overloaded cin for inputting to caselessStrings
-    std::string temp;
-    input >> temp;
-    p_cls.set(temp);
-    return input;
-}
+    
     void printLower(); //Print the lowercase version of the string.
     void printUpper(); //Print the uppercase version of the string.
 
     //Operators
     bool operator== (caselessString p_cls);
     void operator= (std::string p_clsString);
+    friend std::istream &operator>>(std::istream &input, caselessString &p_cls){ //Overloaded cin for inputting to caselessStrings
+      std::string temp;
+      input >> temp;
+      p_cls.set(temp);
+      return input;
+    }
 };
 
 #endif // CASELESSSTRING_H
